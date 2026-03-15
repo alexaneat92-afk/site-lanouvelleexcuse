@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Nouvelle Excuse — Restaurant · Bar · Pizzeria à Limésy</title>
+  <meta name="description" content="La Nouvelle Excuse, restaurant bar pizzeria à Limésy en Normandie. Pizzas maison, vins et bières, accueil chaleureux. Réservez au 02 35 80 81 74." />
+  <meta property="og:title" content="La Nouvelle Excuse — Restaurant · Bar · Pizzeria" />
+  <meta property="og:description" content="Une adresse chaleureuse à Limésy, Normandie. Pizzas maison, belle carte de vins, prix abordables." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --vert:       #2d7a45;
+      --vert-f:     #1f5a32;
+      --tc:         #c4622d;
+      --tc-l:       #e07848;
+      --fond:       #faf7f2;
+      --fond-alt:   #f4efe6;
+      --txt:        #2a2a2a;
+      --txt-s:      #5a5248;
+      --blanc:      #ffffff;
+      --bord:       #ddd5c8;
+      --hh:         70px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', sans-serif; background: var(--fond); color: var(--txt); line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+    .lbl {
+      display: block; font-family: 'Lato', sans-serif;
+      font-size: .72rem; font-weight: 700;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--tc); margin-bottom: .7rem;
+    }
+    .stitle { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 600; color: var(--txt); }
+    .div { width: 44px; height: 2px; background: var(--tc); margin-top: 1rem; }
+    .div.c { margin: 1rem auto 0; }
+
+    /* HEADER */
+    #hdr {
+      position: fixed; top: 0; left: 0; width: 100%;
+      height: var(--hh); background: var(--blanc);
+      border-bottom: 1px solid var(--bord);
+      z-index: 1000; display: flex; align-items: center;
+      padding: 0 2rem; gap: 1.5rem;
+    }
+    .hlogo img { height: 52px; width: auto; object-fit: contain; }
+    nav { display: flex; align-items: center; gap: 1.6rem; flex: 1; justify-content: center; }
+    nav a { font-size: .78rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--txt-s); transition: color .2s; }
+    nav a:hover { color: var(--vert); }
+    .htel {
+      flex-shrink: 0; display: flex; align-items: center; gap: .5rem;
+      background: var(--vert); color: var(--blanc);
+      font-size: .78rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+      padding: .52rem 1.1rem; border-radius: 3px; transition: background .2s;
+    }
+    .htel:hover { background: var(--vert-f); }
+    .ham { display: none; flex-direction: column; gap: 5px; cursor: pointer; margin-left: auto; padding: 6px; }
+    .ham span { display: block; width: 24px; height: 2px; background: var(--txt); }
+    .mmenu {
+      display: none; position: fixed; top: var(--hh); left: 0; width: 100%;
+      background: var(--blanc); border-bottom: 1px solid var(--bord);
+      z-index: 999; flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem;
+    }
+    .mmenu.open { display: flex; }
+    .mmenu a { font-size: .95rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--txt); border-bottom: 1px solid var(--bord); padding-bottom: .9rem; }
+    .mmenu a:last-child { border-bottom: none; }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh; padding-top: var(--hh);
+      position: relative; display: flex; flex-direction: column;
+      justify-content: center; align-items: center;
+      text-align: center; overflow: hidden;
+      background: linear-gradient(148deg,
+        #2a0800 0%, #6b1a0c 20%,
+        #b84820 45%, #d97030 65%,
+        #e8943c 82%, #f0b84e 100%);
+    }
+    #hero::before {
+      content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.38) 100%);
+    }
+    .hero-in { position: relative; z-index: 2; padding: 4rem 2rem 8rem; max-width: 820px; }
+    .hero-eye { font-size: .72rem; font-weight: 700; letter-spacing: .25em; text-transform: uppercase; color: rgba(255,255,255,.55); margin-bottom: 1.8rem; display: block; }
+    .hero-h1 { font-size: clamp(2.8rem, 7.5vw, 5rem); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 1.4rem; text-shadow: 0 2px 28px rgba(0,0,0,.22); }
+    .hero-h1 em { font-style: italic; color: #ffd9a8; }
+    .hero-p { font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,.76); max-width: 540px; margin: 0 auto 2.5rem; line-height: 1.8; }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-w {
+      background: var(--blanc); color: var(--tc);
+      font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .9rem 2rem; border-radius: 3px;
+      display: inline-flex; align-items: center; gap: .5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.18);
+      transition: background .2s, transform .15s;
+    }
+    .btn-w:hover { background: #fff3ec; transform: translateY(-2px); }
+    .btn-g {
+      background: transparent; color: #fff;
+      font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .9rem 2rem; border-radius: 3px; border: 1.5px solid rgba(255,255,255,.42);
+      display: inline-flex; align-items: center; gap: .5rem;
+      transition: border-color .2s, background .2s;
+    }
+    .btn-g:hover { border-color: rgba(255,255,255,.82); background: rgba(255,255,255,.08); }
+    .hstats { position: absolute; bottom: 0; left: 0; width: 100%; z-index: 2; display: flex; border-top: 1px solid rgba(255,255,255,.14); }
+    .hstat { flex: 1; padding: 1.3rem 1rem; text-align: center; border-right: 1px solid rgba(255,255,255,.14); }
+    .hstat:last-child { border-right: none; }
+    .hsv { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 600; color: #fff; display: block; }
+    .hsl { font-size: .68rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.42); display: block; margin-top: .15rem; }
+
+    /* SECTIONS */
+    section { padding: 90px 2rem; }
+    .ctnr { max-width: 1060px; margin: 0 auto; }
+    .shead { margin-bottom: 3.5rem; }
+    .shead.c { text-align: center; }
+    .sdesc { font-size: 1rem; color: var(--txt-s); max-width: 560px; margin-top: .9rem; line-height: 1.8; }
+    .shead.c .sdesc { margin-left: auto; margin-right: auto; }
+
+    /* CARTE */
+    #carte { background: var(--fond-alt); }
+    .carte-box {
+      max-width: 600px; margin: 0 auto; text-align: center;
+      border: 1px solid var(--bord); background: var(--blanc);
+      padding: 3.5rem 2.5rem;
+    }
+    .carte-ico { width: 52px; height: 52px; color: var(--tc); margin: 0 auto 1.8rem; }
+    .carte-box h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; }
+    .carte-box p { font-size: .97rem; color: var(--txt-s); line-height: 1.75; margin-bottom: 2rem; }
+    .btn-call {
+      display: inline-flex; align-items: center; gap: .6rem;
+      background: var(--vert); color: var(--blanc);
+      font-family: 'Lato', sans-serif; font-size: .85rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .9rem 2rem; border-radius: 3px; transition: background .2s;
+    }
+    .btn-call:hover { background: var(--vert-f); }
+
+
+
+    /* AMBIANCE */
+    #ambiance { background: var(--vert-f); }
+    .amb-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .amb-txt .lbl { color: #a8d8a8; }
+    .amb-txt h2 { color: var(--blanc); margin-bottom: 1.2rem; }
+    .amb-txt p { color: rgba(255,255,255,.68); font-size: .97rem; line-height: 1.85; margin-bottom: 1rem; }
+    .amb-txt p:last-child { margin-bottom: 0; }
+    .pillars { display: flex; flex-direction: column; gap: 1.8rem; }
+    .pill { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .pill-ico { width: 40px; height: 40px; flex-shrink: 0; color: #f0b24a; margin-top: 2px; }
+    .pill h3 { font-size: 1.05rem; font-weight: 600; color: var(--blanc); margin-bottom: .3rem; }
+    .pill p { font-size: .9rem; color: rgba(255,255,255,.6); line-height: 1.7; }
+
+    /* AVIS */
+    #avis { background: var(--fond); }
+    .avis-g { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .acard { background: var(--fond-alt); border: 1px solid var(--bord); padding: 2rem 1.8rem; position: relative; }
+    .aquote { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: .5; color: var(--tc); opacity: .25; position: absolute; top: 1.5rem; left: 1.6rem; }
+    .atxt { font-size: .91rem; color: var(--txt); line-height: 1.75; margin-top: 1.8rem; margin-bottom: 1.4rem; font-style: italic; }
+    .afoot { display: flex; align-items: center; justify-content: space-between; }
+    .asrc { font-size: .75rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--txt-s); }
+    .stars { display: flex; gap: 2px; }
+    .stars svg { width: 13px; height: 13px; fill: #f5a623; }
+
+    /* INFOS */
+    #infos { background: var(--fond-alt); }
+    .infos-g { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .htbl { width: 100%; border-collapse: collapse; }
+    .htbl tr { border-bottom: 1px solid var(--bord); }
+    .htbl tr:last-child { border-bottom: none; }
+    .htbl td { padding: .75rem 0; font-size: .93rem; }
+    .htbl td:first-child { font-weight: 700; width: 130px; }
+    .htbl td:last-child { color: var(--txt-s); text-align: right; }
+    .htbl tr.today td { color: var(--vert-f); font-weight: 700; }
+    .htbl tr.today td:last-child { color: var(--vert); }
+    .ferm { color: var(--txt-s) !important; font-style: italic; }
+    .badge {
+      display: inline-flex; align-items: center; gap: .45rem;
+      padding: .4rem .9rem; border-radius: 30px;
+      font-size: .75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1.4rem;
+    }
+    .badge.ouv { background: #e6f4ec; color: var(--vert-f); }
+    .badge.cls { background: #fae8e8; color: #a33; }
+    .bdot { width: 7px; height: 7px; border-radius: 50%; }
+    .badge.ouv .bdot { background: var(--vert); }
+    .badge.cls .bdot { background: #c44; }
+    .ict { display: flex; flex-direction: column; gap: 1.8rem; }
+    .ici { display: flex; gap: 1.2rem; align-items: flex-start; }
+    .icico { width: 34px; height: 34px; flex-shrink: 0; color: var(--vert); margin-top: 2px; }
+    .iclbl { font-size: .68rem; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; color: var(--txt-s); display: block; margin-bottom: .25rem; }
+    .icval { font-size: .95rem; color: var(--txt); line-height: 1.75; }
+    .icval a { color: var(--vert); }
+    .icval a:hover { color: var(--vert-f); }
+    .mapbtn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--vert); color: var(--blanc);
+      font-family: 'Lato', sans-serif; font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      padding: .6rem 1.2rem; border-radius: 3px; margin-top: .7rem; transition: background .2s;
+    }
+    .mapbtn:hover { background: var(--vert-f); }
+
+    /* FOOTER */
+    #ftr { background: #190f06; color: rgba(255,255,255,.48); padding: 3.5rem 2rem; }
+    .ftr-in { max-width: 1060px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 2rem; }
+    .fbrand img { height: 40px; width: auto; object-fit: contain; filter: brightness(0) invert(1); opacity: .72; margin-bottom: .8rem; }
+    .fbrand p { font-size: .84rem; line-height: 1.7; }
+    .fcol h4 { font-family: 'Lato', sans-serif; font-size: .7rem; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.85); margin-bottom: .85rem; }
+    .fcol p, .fcol a { font-size: .86rem; line-height: 1.85; color: rgba(255,255,255,.46); display: block; }
+    .fcol a:hover { color: rgba(255,255,255,.9); }
+    .fsoc { display: flex; gap: .9rem; margin-top: .7rem; }
+    .fsoc a {
+      display: flex; align-items: center; justify-content: center;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.16); color: rgba(255,255,255,.48); transition: border-color .2s, color .2s;
+    }
+    .fsoc a:hover { border-color: rgba(255,255,255,.62); color: var(--blanc); }
+    .fsoc svg { width: 15px; height: 15px; }
+    .fbot { max-width: 1060px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); font-size: .76rem; color: rgba(255,255,255,.26); text-align: center; }
+
+    /* MOBILE FIXED */
+    .mfixed {
+      display: none; position: fixed; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
+      z-index: 900; background: var(--tc); color: var(--blanc);
+      font-family: 'Lato', sans-serif; font-size: .82rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .85rem 1.8rem; border-radius: 40px; white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(196,98,45,.45); align-items: center; gap: .5rem;
+      animation: pulse 2.5s infinite;
+    }
+    @keyframes pulse { 0%,100% { box-shadow: 0 4px 20px rgba(196,98,45,.45); } 50% { box-shadow: 0 4px 32px rgba(196,98,45,.72); } }
+
+    /* ANIMATIONS */
+    .js-ready .fade { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
+    .js-ready .fade.vis { opacity: 1; transform: none; }
+    .js-ready .fade:nth-child(2) { transition-delay: .1s; }
+    .js-ready .fade:nth-child(3) { transition-delay: .2s; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .amb-wrap, .infos-g { grid-template-columns: 1fr; gap: 2.5rem; }
+      .avis-g { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 660px) {
+      nav, .htel { display: none; }
+      .ham { display: flex; }
+      section { padding: 65px 1.2rem; }
+      .hstats { flex-direction: column; }
+      .hstat { border-right: none; border-bottom: 1px solid rgba(255,255,255,.14); }
+      .hstat:last-child { border-bottom: none; }
+
+      .ftr-in { flex-direction: column; }
+      .mfixed { display: flex !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="hlogo">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIbGNtcwIQAABtbnRyUkdCIFhZWiAH4gADABQACQAOAB1hY3NwTVNGVAAAAABzYXdzY3RybAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWhhbmSdkQA9QICwPUB0LIGepSKOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABDAAAAAx3dHB0AAABGAAAABRyWFlaAAABLAAAABRnWFlaAAABQAAAABRiWFlaAAABVAAAABRyVFJDAAABaAAAAGBnVFJDAAABaAAAAGBiVFJDAAABaAAAAGBkZXNjAAAAAAAAAAV1UkdCAAAAAAAAAAAAAAAAdGV4dAAAAABDQzAAWFlaIAAAAAAAAPNUAAEAAAABFslYWVogAAAAAAAAb6AAADjyAAADj1hZWiAAAAAAAABilgAAt4kAABjaWFlaIAAAAAAAACSgAAAPhQAAtsRjdXJ2AAAAAAAAACoAAAB8APgBnAJ1A4MEyQZOCBIKGAxiDvQRzxT2GGocLiBDJKwpai5+M+s5sz/WRldNNlR2XBdkHWyGdVZ+jYgskjacq6eMstu+mcrH12Xkd/H5////2wBDAAkGBwgHBgkICAgKCgkLDhcPDg0NDhwUFREXIh4jIyEeICAlKjUtJScyKCAgLj8vMjc5PDw8JC1CRkE6RjU7PDn/wAARCAH0AfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3GiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK5rSfEsmp+IbiwhgV7WIHE6n04/U9KTdiJ1IwaT6nS0UVznirxH/Yht4oYlmuJWyUOeF/8ArnpQ3bcKlSNOPNLY6OiooWZ4kaRNjkAsuc4PpUtMsKKKKACiiigAooooAKaxCqSSAB3Nef8AxA8X6ja6nbeGfDUay63dDcWP3YU9azYfg+NTxP4o8Q6nqF0eSEkwi/TcDQB6lHIkqho2DKe4OadXkesfCmTw9bPqfg3U9Qh1CEbhA0gbzgP4eAKLbxb8SfEdvHb6P4cTTWVds13dqVG71QP/AINQB65RXlh8E/EOcebceOjHN/dhVtn6YqrB4y8W+B9Qhs/G8SXmmzHampQJ0+uAPyIBoA9doqOCaK5hSaF1kikUOrKchgehqSgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAMs6zpYkZDqFlvU4Zftakj6jNWIrqCdC0U0bqOpVwQKf5EX/PJP++RVSGytIhJstYE3sSxWNRuPqeKALZdFYKWAY9ASM02GaO5hWWF1kjblWHINV5bCKeSOd1bz4x+7cEjavfHoe9Vtb1e00DTvt12JPK3rGAibiWJwBQBrUySKKUASIrhTkBgDg1h6T4o0/XYpWsVnYxMFkVo2UqSMjke1dBQBFbvFJArxFWRhkFTkU66vLWxt3nuriGCBcZklcKoycdTUyvuYqGBKnBAPIrl/G3hi88S2Votnqf2Ga2lEv3MrJjuMHpQBo6b4h0PVJja2GsWFzKoJaOG5Vmx9AafDrml3GdmpWR/7eE/nXLaH4C1HSl1cXGoPdS3xhFtKVx5HlqR069atP8O9MeNY2vbvYuML5h44oA7m3u7e8j8y3njmj/vRuGB/EVJJIkSlnYIo7k4FcR4T8L6f4SmuI7S7uJkmYO/msOoGOPlHrW9rtqmpaNe2Mm9VmiKbh1XPegCvfeLtNtrgWkD/AGy7PRLcbj+fSqbX+q38hWGD7HCf+WkxG4j6Dk1N4b8O6N4aiEVnD++2/wCuk+Z2Prz/AACt+gDmbfwjBM/2jV7l7yf0Y8D/AD9a07W1trOMJaW8MEY6LGgUfpVmigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//2Q==" alt="La Nouvelle Excuse — Restaurant Bar Pizzeria" />
+  </div>
+  <nav>
+    <a href="#carte">Notre Carte</a>
+    <a href="#ambiance">Notre Restaurant</a>
+    <a href="#avis">Avis</a>
+    <a href="#infos">Infos</a>
+  </nav>
+  <a class="htel" href="tel:0235808174">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.36 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    02 35 80 81 74
+  </a>
+  <div class="ham" id="ham" tabindex="0" role="button" aria-label="Menu"><span></span><span></span><span></span></div>
+</header>
+
+<div class="mmenu" id="mmenu">
+  <a href="#carte" onclick="cm()">Notre Carte</a>
+  <a href="#ambiance" onclick="cm()">Notre Restaurant</a>
+  <a href="#avis" onclick="cm()">Avis</a>
+  <a href="#infos" onclick="cm()">Infos Pratiques</a>
+  <a href="tel:0235808174" style="color:var(--vert);">📞 02 35 80 81 74</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-in">
+    <span class="hero-eye">Restaurant · Bar · Pizzeria — Limésy, Normandie</span>
+    <h1 class="hero-h1">Ce soir,<br /><em>donnez-vous une bonne excuse.</em></h1>
+    <p class="hero-p">Une table chaleureuse tenue par des passionnés. De belles pizzas, une carte de vins soignée et un accueil qui transforme chaque repas en souvenir.</p>
+    <div class="hero-btns">
+      <a class="btn-w" href="tel:0235808174">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.36 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        02 35 80 81 74
+      </a>
+      <a class="btn-g" href="#carte">
+        Voir la carte
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hstat"><span class="hsv">6&thinsp;j / 7</span><span class="hsl">Ouvert</span></div>
+    <div class="hstat"><span class="hsv">Limésy</span><span class="hsl">Normandie</span></div>
+    <div class="hstat"><span class="hsv">Midi &amp; Soir</span><span class="hsl">Service complet</span></div>
+  </div>
+</section>
+
+<!-- NOTRE CARTE -->
+<section id="carte">
+  <div class="ctnr">
+    <div class="shead c">
+      <span class="lbl">À table</span>
+      <h2 class="stitle">Notre Carte</h2>
+      <div class="div c"></div>
+    </div>
+    <div class="carte-box fade">
+      <svg class="carte-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/>
+        <rect x="9" y="3" width="6" height="4" rx="2"/>
+        <line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="12" y2="16"/>
+      </svg>
+      <h3>Carte disponible sur place</h3>
+      <p>Pizzas maison, belle sélection de vins et de bières, desserts… Notre carte évolue régulièrement. Retrouvez toutes nos propositions directement sur place ou renseignez-vous par téléphone — il nous fera plaisir de vous répondre.</p>
+      <a class="btn-call" href="tel:0235808174">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.36 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Nous appeler — 02 35 80 81 74
+      </a>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- NOTRE RESTAURANT -->
+<section id="ambiance">
+  <div class="ctnr">
+    <div class="amb-wrap">
+      <div class="amb-txt">
+        <span class="lbl">Notre histoire</span>
+        <h2 class="stitle">Une adresse qui a du cœur</h2>
+        <div class="div" style="background:#a8d8a8; margin-bottom:1.4rem;"></div>
+        <p>La Nouvelle Excuse, c'est un restaurant repris par de jeunes gérants dynamiques et bienveillants, installés au cœur de Limésy, en Normandie. Ici, on cuisine avec passion et on reçoit avec le sourire.</p>
+        <p>Que vous veniez un mardi soir ou un dimanche d'hiver, vous serez accueillis avec la même chaleur. Une adresse rare où les prix restent plus qu'abordables, et d'où l'on repart toujours avec l'envie de revenir.</p>
+      </div>
+      <div class="pillars">
+        <div class="pill fade">
+          <svg class="pill-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 0 20M2 12h20"/>
+            <path d="M12 2c2.5 3 4 6.5 4 10s-1.5 7-4 10M12 2C9.5 5 8 8.5 8 12s1.5 7 4 10"/>
+          </svg>
+          <div>
+            <h3>Pizzas faites maison</h3>
+            <p>Des pizzas généreuses, préparées avec soin, disponibles sur place ou à emporter. Unanimement « excellentes » selon nos clients.</p>
+          </div>
+        </div>
+        <div class="pill fade">
+          <svg class="pill-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M8 22h8"/><path d="M7 10h10"/><path d="M12 10v12"/>
+            <path d="M12 2C8.5 2 7 5 7 7c0 2 1 3 5 3s5-1 5-3c0-2-1.5-5-5-5z"/>
+          </svg>
+          <div>
+            <h3>Belle carte de vins &amp; bières</h3>
+            <p>Une sélection soignée pour accompagner votre repas, conseillée avec naturel par vos hôtes, passionnés par ce qu'ils servent.</p>
+          </div>
+        </div>
+        <div class="pill fade">
+          <svg class="pill-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <div>
+            <h3>Accueil chaleureux &amp; prix honnêtes</h3>
+            <p>Des grands sourires qui mettent de bonne humeur, et des prix plus qu'abordables. Nos clients reviennent — sans exception.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="ctnr">
+    <div class="shead c">
+      <span class="lbl">Ce que disent nos clients</span>
+      <h2 class="stitle">Avis Google</h2>
+      <div class="div c"></div>
+    </div>
+    <div class="avis-g">
+      <div class="acard fade">
+        <div class="aquote">"</div>
+        <p class="atxt">Excellente adresse, une lumière et un accueil même les dimanches soirs d'hiver ! Jeunes restaurateurs dynamiques et chaleureux. Excellentes pizzas, belle carte de vins, bières, desserts.</p>
+        <div class="afoot"><span class="asrc">Avis Google</span><div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
+      </div>
+      <div class="acard fade">
+        <div class="aquote">"</div>
+        <p class="atxt">On y est allés en ayant réservé une heure à l'avance. Nous avons adoré, le restaurant a été repris par des jeunes gens accueillants et bienveillants. Les pizzas sont excellentes, le service agréable, les prix plus qu'abordables. On y retournera sans hésiter. Les pizzas sont aussi disponibles à emporter.</p>
+        <div class="afoot"><span class="asrc">Avis Google</span><div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
+      </div>
+      <div class="acard fade">
+        <div class="aquote">"</div>
+        <p class="atxt">Les gérants de la pizzeria sont adorables et nous avons très bien mangé. Mention spéciale à leurs grands sourires qui mettent de bonne humeur !</p>
+        <div class="afoot"><span class="asrc">Avis Google</span><div class="stars"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INFOS PRATIQUES -->
+<section id="infos">
+  <div class="ctnr">
+    <div class="shead">
+      <span class="lbl">Infos pratiques</span>
+      <h2 class="stitle">Horaires &amp; Accès</h2>
+      <div class="div"></div>
+    </div>
+    <div class="infos-g">
+      <div>
+        <div id="bdg" class="badge cls"><span class="bdot"></span><span id="btxt">Fermé actuellement</span></div>
+        <table class="htbl" id="ht">
+          <tbody>
+            <tr id="d1"><td>Lundi</td><td class="ferm">Fermé</td></tr>
+            <tr id="d2"><td>Mardi</td><td>18h00 – 22h00</td></tr>
+            <tr id="d3"><td>Mercredi</td><td>12h00–14h00 · 18h00–22h00</td></tr>
+            <tr id="d4"><td>Jeudi</td><td>12h00–14h00 · 18h00–22h00</td></tr>
+            <tr id="d5"><td>Vendredi</td><td>12h00–14h00 · 18h00–22h00</td></tr>
+            <tr id="d6"><td>Samedi</td><td>18h00 – 22h00</td></tr>
+            <tr id="d0"><td>Dimanche</td><td>18h00 – 22h00</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="ict">
+        <div class="ici fade">
+          <svg class="icico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div>
+            <span class="iclbl">Adresse</span>
+            <div class="icval">41 Grand Rue<br />76570 Limésy, Normandie</div>
+            <a class="mapbtn" href="https://www.google.com/maps/search/41+Grand+Rue+76570+Lim%C3%A9sy" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              Ouvrir dans Google Maps
+            </a>
+          </div>
+        </div>
+        <div class="ici fade">
+          <svg class="icico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.36 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <div>
+            <span class="iclbl">Téléphone</span>
+            <div class="icval" style="font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:600;"><a href="tel:0235808174" style="color:var(--vert);">02 35 80 81 74</a></div>
+          </div>
+        </div>
+        <div class="ici fade">
+          <svg class="icico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          <div>
+            <span class="iclbl">Instagram</span>
+            <div class="icval"><a href="https://www.instagram.com/lnelimesy" target="_blank" rel="noopener" style="color:var(--vert); font-weight:700;">@lnelimesy</a></div>
+          </div>
+        </div>
+        <div class="ici fade">
+          <svg class="icico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+          <div>
+            <span class="iclbl">Accès</span>
+            <div class="icval">Limésy, Seine-Maritime (76) — à 25 km de Rouen. Parking à proximité du restaurant.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="ftr">
+  <div class="ftr-in">
+    <div class="fbrand">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIbGNtcwIQAABtbnRyUkdCIFhZWiAH4gADABQACQAOAB1hY3NwTVNGVAAAAABzYXdzY3RybAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLWhhbmSdkQA9QICwPUB0LIGepSKOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAAF9jcHJ0AAABDAAAAAx3dHB0AAABGAAAABRyWFlaAAABLAAAABRnWFlaAAABQAAAABRiWFlaAAABVAAAABRyVFJDAAABaAAAAGBnVFJDAAABaAAAAGBiVFJDAAABaAAAAGBkZXNjAAAAAAAAAAV1UkdCAAAAAAAAAAAAAAAAdGV4dAAAAABDQzAAWFlaIAAAAAAAAPNUAAEAAAABFslYWVogAAAAAAAAb6AAADjyAAADj1hZWiAAAAAAAABilgAAt4kAABjaWFlaIAAAAAAAACSgAAAPhQAAtsRjdXJ2AAAAAAAAACoAAAB8APgBnAJ1A4MEyQZOCBIKGAxiDvQRzxT2GGocLiBDJKwpai5+M+s5sz/WRldNNlR2XBdkHWyGdVZ+jYgskjacq6eMstu+mcrH12Xkd/H5////2wBDAAkGBwgHBgkICAgKCgkLDhcPDg0NDhwUFREXIh4jIyEeICAlKjUtJScyKCAgLj8vMjc5PDw8JC1CRkE6RjU7PDn/wAARCAH0AfQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3GiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKK5rSfEsmp+IbiwhgV7WIHE6n04/U9KTdiJ1IwaT6nS0UVznirxH/Yht4oYlmuJWyUOeF/8ArnpQ3bcKlSNOPNLY6OiooWZ4kaRNjkAsuc4PpUtMsKKKKACiiigAooooAKaxCqSSAB3Nef8AxA8X6ja6nbeGfDUay63dDcWP3YU9azYfg+NTxP4o8Q6nqF0eSEkwi/TcDQB6lHIkqho2DKe4OadXkesfCmTw9bPqfg3U9Qh1CEbhA0gbzgP4eAKLbxb8SfEdvHb6P4cTTWVds13dqVG71QP/AINQB65RXlh8E/EOcebceOjHN/dhVtn6YqrB4y8W+B9Qhs/G8SXmmzHampQJ0+uAPyIBoA9doqOCaK5hSaF1kikUOrKchgehqSgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAMs6zpYkZDqFlvU4Zftakj6jNWIrqCdC0U0bqOpVwQKf5EX/PJP++RVSGytIhJstYE3sSxWNRuPqeKALZdFYKWAY9ASM02GaO5hWWF1kjblWHINV5bCKeSOd1bz4x+7cEjavfHoe9Vtb1e00DTvt12JPK3rGAibiWJwBQBrUySKKUASIrhTkBgDg1h6T4o0/XYpWsVnYxMFkVo2UqSMjke1dBQBFbvFJArxFWRhkFTkU66vLWxt3nuriGCBcZklcKoycdTUyvuYqGBKnBAPIrl/G3hi88S2Votnqf2Ga2lEv3MrJjuMHpQBo6b4h0PVJja2GsWFzKoJaOG5Vmx9AafDrml3GdmpWR/7eE/nXLaH4C1HSl1cXGoPdS3xhFtKVx5HlqR069atP8O9MeNY2vbvYuML5h44oA7m3u7e8j8y3njmj/vRuGB/EVJJIkSlnYIo7k4FcR4T8L6f4SmuI7S7uJkmYO/msOoGOPlHrW9rtqmpaNe2Mm9VmiKbh1XPegCvfeLtNtrgWkD/AGy7PRLcbj+fSqbX+q38hWGD7HCf+WkxG4j6Dk1N4b8O6N4aiEVnD++2/wCuk+Z2Prz/AACt+gDmbfwjBM/2jV7l7yf0Y8D/AD9a07W1trOMJaW8MEY6LGgUfpVmigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//2Q==" alt="La Nouvelle Excuse" />
+      <p>Restaurant · Bar · Pizzeria<br />41 Grand Rue, 76570 Limésy</p>
+    </div>
+    <div class="fcol">
+      <h4>Horaires</h4>
+      <p>Lundi : Fermé</p>
+      <p>Mar : 18h – 22h</p>
+      <p>Mer–Ven : 12h–14h · 18h–22h</p>
+      <p>Sam–Dim : 18h – 22h</p>
+    </div>
+    <div class="fcol">
+      <h4>Contact</h4>
+      <a href="tel:0235808174">02 35 80 81 74</a>
+      <a href="https://www.google.com/maps/search/41+Grand+Rue+76570+Lim%C3%A9sy" target="_blank" rel="noopener">41 Grand Rue, Limésy</a>
+      <div class="fsoc">
+        <a href="https://www.instagram.com/lnelimesy" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="fbot">© 2025 La Nouvelle Excuse — 41 Grand Rue, 76570 Limésy — 02 35 80 81 74</div>
+</footer>
+
+<!-- Bouton appel mobile fixe -->
+<a class="mfixed" href="tel:0235808174">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.36 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  02 35 80 81 74
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.classList.add('js-ready');
+
+  document.getElementById('ham').addEventListener('click', function () {
+    document.getElementById('mmenu').classList.toggle('open');
+  });
+
+  /* Horaires */
+  var now = new Date(), day = now.getDay(), t = now.getHours() * 100 + now.getMinutes();
+  var r = document.getElementById('d' + day);
+  if (r) r.classList.add('today');
+
+  var open = day !== 1 && (
+    ((day === 2 || day === 6 || day === 0) && t >= 1800 && t < 2200) ||
+    ((day >= 3 && day <= 5) && ((t >= 1200 && t < 1400) || (t >= 1800 && t < 2200)))
+  );
+
+  var b = document.getElementById('bdg'), bt = document.getElementById('btxt');
+  if (open) { b.classList.remove('cls'); b.classList.add('ouv'); bt.textContent = 'Ouvert maintenant'; }
+
+/* Animations */
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade').forEach(function (el) { obs.observe(el); });
+});
+
+function cm() { document.getElementById('mmenu').classList.remove('open'); }
+
+
+</script>
+</body>
+</html>
